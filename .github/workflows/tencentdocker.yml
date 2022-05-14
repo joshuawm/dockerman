@@ -31,7 +31,7 @@ jobs:
       #upload 
       - name: Push Image to Tecent Cloud
         run:  |
-          docker login ccr.ccs.tencentyun.com --username=${{ secret.TCR_USERNAME }} --password=${{ secret.TCR_PASSWORD }},
+          docker login ccr.ccs.tencentyun.com --username=${{ secrets.TCR_USERNAME }} --password=${{ secrets.TCR_PASSWORD }},
           docker push ccr.ccs.tencentyun.com/joshuamodel/satelite:latest.
 
       # Runs a set of commands using the runners shell
