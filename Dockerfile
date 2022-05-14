@@ -68,13 +68,13 @@ RUN add-apt-repository -y ppa:ubuntugis/ppa && \
     apt-get install -y libgdal-dev &&\
     export CPLUS_INCLUDE_PATH=/usr/include/gdal &&\
     export C_INCLUDE_PATH=/usr/include/gdal &&\
-    pip install GDAL
+    pip3 install GDAL
 WORKDIR /work
 # For Python 3.8 use our SatelliteSurfaceReconstruction/requirements.txt instead of VisSatSatelliteStereo/requirements.txt
 ##Install VisSatSatelliteStereo
 RUN git clone https://github.com/SBCV/SatelliteSurfaceReconstruction.git &&\
     git clone https://github.com/Kai-46/VisSatSatelliteStereo && \
-    pip install -r SatelliteSurfaceReconstruction/requirements.txt
+    pip3 install -r SatelliteSurfaceReconstruction/requirements.txt
 WORKDIR /root
 #Install MVE
 RUN git clone https://github.com/simonfuhrmann/mve.git &&\
