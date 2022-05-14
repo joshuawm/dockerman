@@ -83,6 +83,7 @@ RUN git clone https://github.com/simonfuhrmann/mve.git &&\
 #Install MVS-Texturing 
 RUN git clone https://github.com/nmoehrle/mvs-texturing.git &&\
     cd mvs-texturing &&\
+    mkdir build && cd build && cmake ..
     make -j 4
 #Install MeshLab
 RUN wget https://github.com/cnr-isti-vclab/meshlab/releases/download/MeshLab-2022.02/MeshLab2022.02-linux.tar.gz && \
