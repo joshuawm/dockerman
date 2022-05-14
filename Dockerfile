@@ -62,10 +62,10 @@ RUN cd colmap && \
 	make install
 
 ## Install Gdal
-RUN add-apt-repository ppa:ubuntugis/ppa && apt-get update && \
-    apt-get update && \
-    apt-get install gdal-bin && \
-    apt-get install libgdal-dev &&\
+RUN add-apt-repository ppa:ubuntugis/ppa && \
+    apt-get update -y && \
+    apt-get install -y gdal-bin && \
+    apt-get install -y libgdal-dev &&\
     export CPLUS_INCLUDE_PATH=/usr/include/gdal &&\
     export C_INCLUDE_PATH=/usr/include/gdal &&\
     pip install GDAL
