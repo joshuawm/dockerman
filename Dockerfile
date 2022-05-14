@@ -91,7 +91,6 @@ RUN git clone https://github.com/nmoehrle/mvs-texturing.git &&\
     make -j 4
 #Install MeshLab
 RUN wget https://github.com/cnr-isti-vclab/meshlab/releases/download/MeshLab-2022.02/MeshLab2022.02-linux.tar.gz && \
-    add-apt-repository --yes ppa:george-edison55/cmake-3.x &&\
     tar -zvxf  MeshLab2022.02-linux.tar.gz  &&\
     cd  MeshLab2022.02-linux &&\
     ./configure &&\
