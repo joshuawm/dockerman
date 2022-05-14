@@ -62,7 +62,7 @@ RUN cd colmap && \
 	make install
 
 ## Install Gdal
-RUN add-apt-repository ppa:ubuntugis/ppa && \
+RUN add-apt-repository -y ppa:ubuntugis/ppa && \
     apt-get update -y && \
     apt-get install -y gdal-bin && \
     apt-get install -y libgdal-dev &&\
@@ -71,7 +71,6 @@ RUN add-apt-repository ppa:ubuntugis/ppa && \
     pip install GDAL
 WORKDIR /work
 # For Python 3.8 use our SatelliteSurfaceReconstruction/requirements.txt instead of VisSatSatelliteStereo/requirements.txt
-RUN git clone https://github.com/SBCV/SatelliteSurfaceReconstruction.git
 ##Install VisSatSatelliteStereo
 RUN git clone https://github.com/SBCV/SatelliteSurfaceReconstruction.git &&\
     git clone https://github.com/Kai-46/VisSatSatelliteStereo && \
@@ -80,12 +79,11 @@ WORKDIR /root
 #Install MVE
 RUN git clone https://github.com/simonfuhrmann/mve.git &&\
      cd mve &&\
-     make j8
+     make -j 4
 #Install MVS-Texturing 
 RUN git clone https://github.com/nmoehrle/mvs-texturing.git &&\
     cd mvs-texturing &&\
-    cd mvs-texturing &&\
-    make -j
+    make -j 4
 #Install MeshLab
 RUN wget https://github.com/cnr-isti-vclab/meshlab/releases/download/MeshLab-2022.02/MeshLab2022.02-linux.tar.gz && \
     tar -zvxf  MeshLab2022.02-linux.tar.gz  &&\
@@ -93,6 +91,5 @@ RUN wget https://github.com/cnr-isti-vclab/meshlab/releases/download/MeshLab-202
     ./configure &&\
     make &&\
     make install
-#Delete Install stuff
-RUN rm -rf /root/*
+#Delete Installation stuff
 ENV PYTHONPATH=${PYTHONPATH}:/work/SatelliteSurfaceReconstruction:/work/VisSatSatelliteStereo
