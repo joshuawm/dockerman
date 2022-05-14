@@ -82,7 +82,8 @@ RUN git clone https://github.com/simonfuhrmann/mve.git &&\
      make -j 4
 #Install MVS-Texturing 
 RUN git clone https://github.com/nmoehrle/mvs-texturing.git &&\
-    apt install -y libpng libjpg libtiff libtbb &&\
+    apt update -y &&\
+    apt install -y libtiff-dev libtbb-dev &&\
     cd mvs-texturing &&\
     mkdir build &&\
     cd build &&\
