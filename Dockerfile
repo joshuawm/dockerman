@@ -6,7 +6,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 #Install Essential Utilities
 RUN apt update -y &&\
-    apt install -y python3-pip wget tar software-properties-common
+    apt install -y python3-pip wget tar software-properties-common 
 
 # Prepare and empty machine for building
 RUN apt-get update && apt-get install -y \
@@ -82,6 +82,7 @@ RUN git clone https://github.com/simonfuhrmann/mve.git &&\
      make -j 4
 #Install MVS-Texturing 
 RUN git clone https://github.com/nmoehrle/mvs-texturing.git &&\
+    apt install -y libpng libjpg libtiff libtbb &&\
     cd mvs-texturing &&\
     mkdir build &&\
     cd build &&\
@@ -91,7 +92,6 @@ RUN git clone https://github.com/nmoehrle/mvs-texturing.git &&\
 RUN wget https://github.com/cnr-isti-vclab/meshlab/releases/download/MeshLab-2022.02/MeshLab2022.02-linux.tar.gz && \
     add-apt-repository --yes ppa:george-edison55/cmake-3.x &&\
     tar -zvxf  MeshLab2022.02-linux.tar.gz  &&\
-    apt install -y libpng libjpg libtiff libtbb &&\
     cd  MeshLab2022.02-linux &&\
     ./configure &&\
     make &&\
