@@ -6,13 +6,12 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 #Install Essential Utilities
 RUN apt update -y &&\
-    apt install python3 &&\
+    apt install -y python3 &&\
     wget &&\
     tar
 
 # Prepare and empty machine for building
 RUN apt-get update && apt-get install -y \
-    python3 \
     libmetis-dev \
     git \
     cmake \
@@ -54,7 +53,7 @@ RUN cd ${CERES_SOLVER_VERSION} && \
 # problems and want to install the tested release, then uncomment the branch
 # specification in the line below
 WORKDIR /root
-RUN git clone https://github.com/colmap/colmap.git #--branch 3.7
+RUN git clone https://github.com/colmap/colmap.git 
 
 RUN cd colmap && \
 	git checkout dev && \
@@ -78,7 +77,7 @@ RUN git clone https://github.com/SBCV/SatelliteSurfaceReconstruction.git
 ##Install VisSatSatelliteStereo
 RUN git clone https://github.com/SBCV/SatelliteSurfaceReconstruction.git &&\
     git clone https://github.com/Kai-46/VisSatSatelliteStereo && \
-    pip install -r SatelliteSurfaceReconstruction/requirements.txt  &&\
+    pip install -r SatelliteSurfaceReconstruction/requirements.txt
 WORKDIR /root
 #Install MVE
 RUN git clone https://github.com/simonfuhrmann/mve.git &&\
