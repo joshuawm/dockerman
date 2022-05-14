@@ -6,7 +6,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 #Install Essential Utilities
 RUN apt update -y &&\
-    apt install -y python3 wget tar 
+    apt install -y python3 wget tar software-properties-common
 
 # Prepare and empty machine for building
 RUN apt-get update && apt-get install -y \
