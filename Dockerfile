@@ -91,10 +91,7 @@ RUN git clone https://github.com/nmoehrle/mvs-texturing.git &&\
     make -j 4
 #Install MeshLab
 RUN wget https://github.com/cnr-isti-vclab/meshlab/releases/download/MeshLab-2022.02/MeshLab2022.02-linux.tar.gz && \
-    tar -zvxf  MeshLab2022.02-linux.tar.gz  &&\
-    cd  MeshLab2022.02-linux &&\
-    ./configure &&\
-    make &&\
-    make install
+    tar -zvxf  MeshLab2022.02-linux.tar.gz
+
 #Delete Installation stuff
 ENV PYTHONPATH=${PYTHONPATH}:/work/SatelliteSurfaceReconstruction:/work/VisSatSatelliteStereo
