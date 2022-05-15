@@ -31,11 +31,11 @@ jobs:
       #upload 
       - name: Push Image to Tecent Cloud
         run:  |
-          docker login hkccr.ccs.tencentyun.com --username=${{ secrets.TCR_USERNAME }} --password=${{ secrets.TCR_PASSWORD }},
+          docker login hkccr.ccs.tencentyun.com --username=100018472851 --password=TecentCloud@65
           docker push hkccr.ccs.tencentyun.com/joshuahk/satelite:latest.
 
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |
-          echo Add other actions to build,
+          echo Add other actions to build
           echo test, and deploy your project.
