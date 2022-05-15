@@ -1,5 +1,5 @@
 #Based on https://github.com/colmap/colmap/blob/dev/docker/Dockerfile
-FROM nvidia/cuda:11.4.0-devel-ubuntu18.04
+FROM nvidia/cuda:11.4.0-devel-ubuntu20.04
 
 # Prevent stop building ubuntu at time zone selection.  
 ENV DEBIAN_FRONTEND=noninteractive
